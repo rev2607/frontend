@@ -26,8 +26,8 @@ const TopColleges = () => {
               </tr>
             </thead>
             <tbody>
-              {Array.isArray(TopCollegesData) && TopCollegesData.length > 0 && (
-                TopCollegesData.map((college: any, index: number) => (
+              {TopCollegesData.length > 0
+                ? TopCollegesData.map((college: any, index: number) => (
                   <tr key={index} dir="ltr" className="even:bg-[#E5E5E5]">
                     <td style={{ backgroundColor: colorArray[index] }} className="top_college_radius_td px-4 py-4 text-center rounded-s-lg">
                       0{index + 1}
@@ -42,7 +42,7 @@ const TopColleges = () => {
                     <td className="px-4 py-4">{college.fee_structure}</td>
                   </tr>
                 ))
-              )}
+                : null}
             </tbody>
           </table>
         </div>
