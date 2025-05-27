@@ -173,7 +173,7 @@ function SearchPage() {
           </div>
           <button className="bg-black text-white text-[8px] font-semibold rounded-full px-3 py-1 hover:bg-gray-800 transition whitespace-nowrap">Join Now</button>
           <div className="flex-1"></div>
-          <svg className="w-12 h-12 opacity-20" fill="none" stroke="#ffffff" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg className="w-12 h-12 opacity-20" fill="none" stroke="#ffffff" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <circle cx="12" cy="12" fill="#7AC142" r="10" stroke="none"></circle>
             <path d="M9 12l2 2 4-4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
           </svg>
@@ -196,7 +196,7 @@ function SearchPage() {
           </div>
           <button className="bg-black text-white text-[8px] font-semibold rounded-full px-3 py-1 hover:bg-gray-800 transition whitespace-nowrap">Join Now</button>
           <div className="flex-1"></div>
-          <svg className="w-12 h-12 opacity-20" fill="none" stroke="#ffffff" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg className="w-12 h-12 opacity-20" fill="none" stroke="#ffffff" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <circle cx="12" cy="12" fill="#7AC142" r="10" stroke="none"></circle>
             <path d="M9 12l2 2 4-4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
           </svg>
@@ -253,7 +253,7 @@ function SearchPage() {
           </div>
           <button className="bg-black text-white text-[8px] font-semibold rounded-full px-3 py-1 hover:bg-gray-800 transition whitespace-nowrap">Join Now</button>
           <div className="flex-1"></div>
-          <svg className="w-12 h-12 opacity-20" fill="none" stroke="#ffffff" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg className="w-12 h-12 opacity-20" fill="none" stroke="#ffffff" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <circle cx="12" cy="12" fill="#7AC142" r="10" stroke="none"></circle>
             <path d="M9 12l2 2 4-4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
           </svg>
