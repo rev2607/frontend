@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { Menu, X, Phone, Mail, MessageCircle } from "lucide-react";
+import React, { useState } from "react";
+import { Menu, X, ChevronDown, Phone, Mail, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const HomePageHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const menuItems = [
     { title: "Colleges", path: "/colleges" },

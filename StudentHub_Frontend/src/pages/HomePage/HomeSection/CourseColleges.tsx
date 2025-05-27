@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Briefcase, Bell, Clock } from "lucide-react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 
@@ -14,8 +15,46 @@ const CourseColleges = () => {
 
   const [pageData, setPageData] = useState<CourseCollegeProps | null>(null);
 
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+
   useEffect(() => {
+    const fetchData = async () => {
+      setError(null);
+      setLoading(true);
+
+      try {
+        const response = await axios.get("http://localhost:8000/api/data/all");
+        const data = response.data;
+
+        if (data.status === "success" && Object.keys(data.data)?.length > 0) {
+          setPageData(data);
+          console.log(data);
+        }
+        // else {
+        //   throw new Error("Invalid data format received from API");
+        // }
+      } catch (err) {
+        let errorMessage = "Failed to fetch News";
+        if (err instanceof Error) {
+          if (err.message.includes("404")) {
+            errorMessage = "News data not found";
+          } else if (err.message.includes("500")) {
+            errorMessage = "Server error occurred";
+          } else if (err.message.includes("NetworkError")) {
+            errorMessage = "Network connection failed";
+          } else {
+            errorMessage = err.message;
+          }
+        }
+        setError(errorMessage);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     setPageData(tempData); // for testing purpose
+    // fetchData();
   }, []);
 
   /* START: filter data ------------------------------------------------------------- */
@@ -43,6 +82,24 @@ const CourseColleges = () => {
   }, []);
 
   /* END: filter data ------------------------------------------------------------- */
+
+  if (loading)
+    return (
+      <div className="text-center py-8 flex">
+        <div className="mx-auto w-full max-w-sm rounded-md border border-gray-300 p-4">
+          <div className="flex animate-pulse space-x-4">
+            <div className="flex-1 space-y-6 py-1">
+              <div className="space-y-3">
+                <div className="h-2 rounded bg-gray-200"></div>
+                <div className="h-2 rounded bg-gray-200"></div>
+                <div className="h-2 rounded bg-gray-200"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  if (error) return <div className="text-center py-8 text-red-500">Error: {error}</div>;
 
   return (
     <section className="bg-white py-8">
