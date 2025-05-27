@@ -1,0 +1,12 @@
+{
+      "build": {
+        "env": {
+          "NODE_ENV": "production"
+        },
+        "command": "npm install && npm run build"
+      },
+      "deploy": {
+        "command": "npm run preview -- --host 0.0.0.0 --port $PORT"
+      },
+      "root": "StudentHub_Frontend"
+    }
