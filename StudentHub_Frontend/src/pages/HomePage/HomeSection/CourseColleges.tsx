@@ -19,42 +19,7 @@ const CourseColleges = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      setError(null);
-      setLoading(true);
-
-      try {
-        const response = await axios.get("http://localhost:8000/api/data/all");
-        const data = response.data;
-
-        if (data.status === "success" && Object.keys(data.data)?.length > 0) {
-          setPageData(data);
-          console.log(data);
-        }
-        // else {
-        //   throw new Error("Invalid data format received from API");
-        // }
-      } catch (err) {
-        let errorMessage = "Failed to fetch News";
-        if (err instanceof Error) {
-          if (err.message.includes("404")) {
-            errorMessage = "News data not found";
-          } else if (err.message.includes("500")) {
-            errorMessage = "Server error occurred";
-          } else if (err.message.includes("NetworkError")) {
-            errorMessage = "Network connection failed";
-          } else {
-            errorMessage = err.message;
-          }
-        }
-        setError(errorMessage);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     setPageData(tempData); // for testing purpose
-    // fetchData();
   }, []);
 
   /* START: filter data ------------------------------------------------------------- */

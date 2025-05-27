@@ -31,46 +31,6 @@ function NewsItemTop() {
   const maxIndex = Math.ceil(newsItems.length / itemsPerSlide) - 1;
 
   useEffect(() => {
-    const fetchData = async () => {
-      setError(null);
-      setLoading(true);
-
-      try {
-        const response = await axios.get("http://localhost:8000/api/education");
-        console.log(response);
-
-        const data = response.data;
-        // if (!response.ok) {
-        //   throw new Error(`HTTP error! status: ${response.status}`);
-        // }
-
-        if (data && Array.isArray(data)) {
-          setNewsItens(data);
-        } else {
-          throw new Error("Invalid data format received from API");
-        }
-
-        run();
-      } catch (err) {
-        let errorMessage = "Failed to fetch News";
-        if (err instanceof Error) {
-          if (err.message.includes("404")) {
-            errorMessage = "News data not found";
-          } else if (err.message.includes("500")) {
-            errorMessage = "Server error occurred";
-          } else if (err.message.includes("NetworkError")) {
-            errorMessage = "Network connection failed";
-          } else {
-            errorMessage = err.message;
-          }
-        }
-        setError(errorMessage);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    // fetchData();
     setNewsItens(tempData); // for testing purpose
   }, []);
 
@@ -78,11 +38,12 @@ function NewsItemTop() {
   if (error) return <div className="text-center py-8 text-red-500">Error: {error}</div>;
 
   function run() {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex === maxIndex ? 0 : prevIndex + 1));
-    }, 5000);
-
-    return () => clearInterval(interval);
+    if (maxIndex > 0) {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex === maxIndex ? 0 : prevIndex + 1));
+      }, 5000);
+      return () => clearInterval(interval);
+    }
   }
 
   const goToPrevious = () => {

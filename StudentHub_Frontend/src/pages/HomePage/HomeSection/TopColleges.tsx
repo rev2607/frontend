@@ -26,21 +26,23 @@ const TopColleges = () => {
               </tr>
             </thead>
             <tbody>
-              {TopCollegesData.map((college: any, index: number) => (
-                <tr key={index} dir="ltr" className="even:bg-[#E5E5E5]">
-                  <td style={{ backgroundColor: colorArray[index] }} className="top_college_radius_td px-4 py-4 text-center rounded-s-lg">
-                    0{index + 1}
-                  </td>
-                  <td className="px-4 py-4 flex items-center">
-                    <img src={"https://placehold.co/50x50" || college.logo_url} alt="Logo" className="w-10 h-10 mr-4 rounded-full" />
-                    {college.name}
-                  </td>
-                  <td className="px-4 py-4">{college.nirf_ranking}</td>
-                  <td className="px-4 py-4">{college.highest_package}</td>
-                  <td className="px-4 py-4">{college?.courses_offered}</td>
-                  <td className="px-4 py-4">{college.fee_structure}</td>
-                </tr>
-              ))}
+              {Array.isArray(TopCollegesData) && TopCollegesData.length > 0 && (
+                TopCollegesData.map((college: any, index: number) => (
+                  <tr key={index} dir="ltr" className="even:bg-[#E5E5E5]">
+                    <td style={{ backgroundColor: colorArray[index] }} className="top_college_radius_td px-4 py-4 text-center rounded-s-lg">
+                      0{index + 1}
+                    </td>
+                    <td className="px-4 py-4 flex items-center">
+                      <img src={"https://placehold.co/50x50" || college.logo_url} alt="Logo" className="w-10 h-10 mr-4 rounded-full" />
+                      {college.name}
+                    </td>
+                    <td className="px-4 py-4">{college.nirf_ranking}</td>
+                    <td className="px-4 py-4">{college.highest_package}</td>
+                    <td className="px-4 py-4">{college?.courses_offered}</td>
+                    <td className="px-4 py-4">{college.fee_structure}</td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>
