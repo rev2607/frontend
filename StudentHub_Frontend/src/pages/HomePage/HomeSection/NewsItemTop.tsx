@@ -46,7 +46,7 @@ function NewsItemTop() {
 
         <div className="relative">
           <div className="overflow-hidden rounded-lg shadow-xl">
-            {(newsItems.length > 0 && itemsPerSlide > 0) ? (
+            {newsItems.length > 0 && itemsPerSlide > 0 && (
               <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                 {Array.from({ length: Math.ceil(newsItems.length / itemsPerSlide) }).map((_, groupIndex) => (
                   <div key={groupIndex} className="w-full flex-shrink-0 flex gap-4">
@@ -75,7 +75,7 @@ function NewsItemTop() {
                   </div>
                 ))}
               </div>
-            ) : null}
+            )}
           </div>
 
           <button onClick={goToPrevious} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 transition-colors">
