@@ -12,9 +12,6 @@ function SearchPage() {
     setIsLeftOpen((prev) => !prev);
   };
 
-  const closeLeftSidebar = () => {
-    setIsLeftOpen(false);
-  };
   const sidebarRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
